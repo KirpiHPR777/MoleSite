@@ -8,10 +8,15 @@ const router = require('./routes/mainRouter');
 const errorHandler = require('./middleware/errorHandlingMiddleware');
 
 const PORT = process.env.PORT || 5000;
+const corsOptions ={ 
+    'origin': ['https://molesite.netlify.app/'],
+    'credentials': true, 
+    'optionSuccessStatus': 200,
+}
 
 const app = express();
 app.use(express.json());
-app.use(cors({original: ['https://molesite.netlify.app/']}));
+app.use(cors(corsOptions));
 app.use(fileUpload({}));
 app.use('/api', router);
 app.use(errorHandler);

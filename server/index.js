@@ -8,7 +8,8 @@ const router = require('./routes/mainRouter');
 const errorHandler = require('./middleware/errorHandlingMiddleware');
 
 const PORT = process.env.PORT || 5000;
-const corsOptions ={ origin: '*', credentials: true, optionSuccessStatus:200,}
+// const corsOptions ={ origin: '*', credentials: true, optionSuccessStatus:200,}
+const corsOptions ={ origin: 'https://molesite.netlify.app/'}
 
 const app = express();
 app.use(cors(corsOptions));
